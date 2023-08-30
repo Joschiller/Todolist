@@ -4,6 +4,8 @@ import de.nordakademie.a114.a20a.todolist.gui.styling.Colors;
 import de.nordakademie.a114.a20a.todolist.gui.styling.Fonts;
 import de.nordakademie.a114.a20a.todolist.gui.styling.Components;
 import de.nordakademie.a114.a20a.todolist.gui.styling.StyleProvider;
+import de.nordakademie.a114.a20a.todolist.model.MajorTodo;
+import de.nordakademie.a114.a20a.todolist.model.MinorTodo;
 import de.nordakademie.a114.a20a.todolist.model.Todo;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -178,7 +180,7 @@ public class MainWindow extends Application {
     }
 
     private void createTodo() {
-        todos.add(new Todo(todoInput.getText()));
+        todos.add(cbMode.isSelected() ? new MajorTodo(todoInput.getText()) : new MinorTodo(todoInput.getText()));
         renderCurrentTodos();
     }
 
