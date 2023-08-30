@@ -28,6 +28,8 @@ public class MainWindow extends Application {
 
     //region Todos
     private ArrayList<Todo> todos = new ArrayList<>();
+    private Todo.TodoCreator minorTodoCreator = new MinorTodo.MinorTodoCreator();
+    private Todo.TodoCreator majorTodoCreator = new MajorTodo.MajorTodoCreator();
     //endregion
 
     private Stage primaryStage;
@@ -180,7 +182,7 @@ public class MainWindow extends Application {
     }
 
     private void createTodo() {
-        todos.add(cbMode.isSelected() ? new MajorTodo(todoInput.getText()) : new MinorTodo(todoInput.getText()));
+        todos.add((cbMode.isSelected() ? majorTodoCreator : minorTodoCreator).createTodo(todoInput.getText()));
         renderCurrentTodos();
     }
 

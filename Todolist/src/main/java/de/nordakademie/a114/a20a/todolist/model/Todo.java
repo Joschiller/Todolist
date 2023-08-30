@@ -13,4 +13,8 @@ public abstract class Todo {
     }
 
     protected abstract String getPrefix();
+
+    public abstract static class TodoCreator {
+        public abstract Todo createTodo(String text);
+    }
 }
